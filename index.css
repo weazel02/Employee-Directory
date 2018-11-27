@@ -1,16 +1,37 @@
 body {
     margin: 0px;
     padding: 0px;
+    font-family: 'Montserrat', sans-serif;  
+    background-color:  #1bd9c4;
 }
+#title-text{
+    font-size: 28pt;
+    text-align: center;
+    margin: 0 0 20px 0;
+    text-shadow: 5px 5px 5px#537a94;
+    color: white;
 
+}
+.search-bar{
+    margin: 1000px;
+    color: red;
+
+}
 button{
     width: 25%;
     height: 30px;
-    font-size: 10pt;
+    font-size: 8pt;
+    display: inline;
+    font-family: 'Montserrat', sans-serif;
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: #537a94;
+    color: white;
+    margin: 0 0 10px 0;
 }
 
 .app-container {
-    width: 400px;
+    width: 500px;
     margin: 0 auto 0 auto;
 }
 
@@ -25,8 +46,24 @@ button{
     transition: 0.3s;
     border-radius: 5px;
     width: 100%;
+    margin: 10px;
 }
 .list-container {
     width: 100%;
-    display: inline-block;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+    border-radius: 5px;
+    margin: 10px;
+    
+}
+
+#background-image{
+      
+    height: 100%; 
+    width: 100%;
+    background-image:url('images/background-image.png');
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

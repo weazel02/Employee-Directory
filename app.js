@@ -49,6 +49,7 @@
         function getJobTitle(person){
             return person.jobTitle;
         };
+
         // headshot URLs are scheme relative //
         // prepend http: to prevent invalid schemes like file:// or uri://
         function getImageUrl(person){
@@ -158,6 +159,10 @@
 
         const sortByJob = sortObjListByProp('jobTitle');
 
+        var searchStyle = {
+            margin: "0 0 0 35%",
+          };
+
 
         /*==================================================
 
@@ -167,7 +172,8 @@
 
         const Search = (props) => React.DOM.input({
             type: 'input',
-            onChange: props.onChange
+            onChange: props.onChange,
+            style: searchStyle
         });
 
         const Thumbnail = (props) => React.DOM.img({
@@ -241,14 +247,14 @@
 
             render() {
                 const { visiblePersonList } = this.state;
+                Search.id = 'search-bar';
 
                 return React.DOM.div({ className: 'app-container' }, [
-
                     React.DOM.button({ key: 'shuffle', onClick: this._shuffleList }, null, 'Shuffle'),
                     React.DOM.button({ key: 'sort-first', onClick: this._sortByFirst }, null, 'Sort (First Name)'),
                     React.DOM.button({ key: 'sort-last', onClick: this._sortByLast }, null, 'Sort (Last Name)'),
                     React.DOM.button({ key: 'sort-job', onClick: this._sortByJob }, null, 'Sort (Job)'),
-                    React.createElement(Search, { key: 'search', onChange: this._onSearch }),
+                    React.createElement(Search, { key: 'search', onChange: this._onSearch}),
                     React.createElement(ListContainer, { key: 'list', personList: visiblePersonList })
                 ]);
             }

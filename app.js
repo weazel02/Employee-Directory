@@ -42,7 +42,7 @@
             return person.lastName;
         }
 
-        const getFirstName = (person) => {
+        function getFirstName(person){
             return person.firstName;
         };
 

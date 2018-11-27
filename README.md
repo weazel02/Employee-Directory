@@ -4,7 +4,7 @@ A web application allowing for sorting and searching of a companies' employees.
 
 ## Code Review
 
-The detailed code review is located in the Code Review_Employee Directory.docx 
+The detailed code review is located in the Code Review_Employee Directory.docx file.
 
 
 ## How to Run:

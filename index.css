@@ -2,6 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
 }
+
 button{
     width: 25%;
     height: 30px;
@@ -14,6 +15,7 @@ button{
 }
 
 .image {
+    background-image:url('images/blank_profile.png');
     width: 100px;
     height: 100px;
 }
@@ -27,5 +29,4 @@ button{
 .list-container {
     width: 100%;
     display: inline-block;
-    padding: 0 100px 0 100px;
 }

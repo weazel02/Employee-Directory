@@ -52,7 +52,14 @@
         // headshot URLs are scheme relative //
         // prepend http: to prevent invalid schemes like file:// or uri://
         function getImageUrl(person){
-            return `http:${person.headshot.url}`;
+            let imageToReturn = person.headshot.url;
+            if(typeof(imageToReturn) == 'undefined'){
+                console.log("was undefined");
+                return 'images/blank_profile.png' 
+            }else{
+                return `http:${imageToReturn}`;
+            }
+            
         };
 
         //Function that takes in a string/length and returns a substring of the input length 

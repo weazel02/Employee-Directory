@@ -48,9 +48,18 @@
 
         // headshot URLs are scheme relative //
         // prepend http: to prevent invalid schemes like file:// or uri://
-        const getImageUrl = (person) => {
+        function getImageUrl(person){
             return `http:${person.headshot.url}`;
         };
+
+        //Function that takes in a string/length and returns a substring of the input length 
+        function getNameSubString(length,name){
+            let curName = "";
+            for(let i = 0; i < length;i++){
+                curName+=name[i];
+            }
+            return curName;
+        }
 
         /**
          * Fisher-Yates shuffle
@@ -78,9 +87,14 @@
          */
         function filterByName(searchForName, personList) {
             return personList.filter((person) => {
-                return person.firstName === searchForName || person.lastName === searchForName;
+                let fullName = person.firstName + " " + person.lastName;
+                return getNameSubString(searchForName.length,fullName.toLowerCase()) === searchForName.toLowerCase() ||
+                getNameSubString(searchForName.length,person.firstName.toLowerCase()) === searchForName.toLowerCase() ||
+                getNameSubString(searchForName.length,person.lastName.toLowerCase()) === searchForName.toLowerCase()
             });
         }
+
+        
 
 
         /**

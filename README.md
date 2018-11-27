@@ -2,6 +2,8 @@
 
 A web application allowing for sorting and searching of a companies' employees.
 
+![ScreenShot](https://github.com/weazel02/Employee-Directory/blob/master/Directory-picture.PNG)
+
 ## Code Review
 
 The detailed code review is located in the Code Review_Employee Directory.docx file.

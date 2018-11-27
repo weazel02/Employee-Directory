@@ -46,6 +46,9 @@
             return person.firstName;
         };
 
+        function getJobTitle(person){
+            return person.jobTitle;
+        };
         // headshot URLs are scheme relative //
         // prepend http: to prevent invalid schemes like file:// or uri://
         function getImageUrl(person){
@@ -117,8 +120,9 @@
             return function(objList) {
                 // Make a copy & don't mutate the passed in list
                 let result = objList.slice(1);
-
+                
                 result.sort((a, b) => {
+                    console.log(a[prop]);
                     if (a[prop] < b[prop]) {
                         return -1;
                     }
@@ -126,10 +130,17 @@
                     if (a[prop] > b[prop]) {
                         return 1;
                     }
+                    if (typeof(a[prop]) == 'undefined' && typeof(b[prop]) !== 'undefined'){
+                        return 1;
+                    }
+                    if (typeof(a[prop]) !== 'undefined' && typeof(b[prop]) == 'undefined'){
+                        return -1;
+                    }
 
                     return 1;
                 });
-
+                
+                
                 return result;
             };
         }
@@ -137,6 +148,8 @@
         const sortByFirstName = sortObjListByProp('firstName');
 
         const sortByLastName = sortObjListByProp('lastName');
+
+        const sortByJob = sortObjListByProp('jobTitle');
 
 
         /*==================================================
@@ -159,13 +172,15 @@
             React.DOM.td({ key: 'thumb' }, React.createElement(Thumbnail, { src: getImageUrl(props.person) })),
             React.DOM.td({ key: 'first' }, null, getFirstName(props.person)),
             React.DOM.td({ key: 'last' }, null, getLastName(props.person)),
+            React.DOM.td({ key: 'job' }, null, getJobTitle(props.person)),
         ]);
 
         const ListContainer = (props) => React.DOM.table({ className: 'list-container' }, [
             React.DOM.thead({ key: 'thead' }, React.DOM.tr({}, [
                 React.DOM.th({ key: 'thumb-h' }, null, 'Thumbnail'),
                 React.DOM.th({ key: 'first-h' }, null, 'First Name'),
-                React.DOM.th({ key: 'last-h' }, null, 'Last Name')
+                React.DOM.th({ key: 'last-h' }, null, 'Last Name'),
+                React.DOM.th({ key: 'job-h' }, null, 'Job Title')
             ])),
             React.DOM.tbody({ key: 'tbody' }, props.personList.map((person, i) =>
                 React.createElement(ListRow, { key: `person-${i}`, person })))
@@ -205,12 +220,18 @@
                 });
             },
 
+            _sortByJob() {
+                this.setState({
+                    visiblePersonList: sortByJob(this.state.personList)
+                });
+            },
+
             _onSearch(e) {
                 this.setState({
                     visiblePersonList: filterByName(e.target.value, this.state.personList)
                 });
             },
-            
+
             render() {
                 const { visiblePersonList } = this.state;
 

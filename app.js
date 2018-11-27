@@ -136,7 +136,7 @@
 
         const sortByFirstName = sortObjListByProp('firstName');
 
-        const sortByLastName = (personList) => sortByFirstName(personList).reverse();
+        const sortByLastName = sortObjListByProp('lastName');
 
 
         /*==================================================
@@ -210,7 +210,7 @@
                     visiblePersonList: filterByName(e.target.value, this.state.personList)
                 });
             },
-
+            
             render() {
                 const { visiblePersonList } = this.state;
 
@@ -219,6 +219,7 @@
                     React.DOM.button({ key: 'shuffle', onClick: this._shuffleList }, null, 'Shuffle'),
                     React.DOM.button({ key: 'sort-first', onClick: this._sortByFirst }, null, 'Sort (First Name)'),
                     React.DOM.button({ key: 'sort-last', onClick: this._sortByLast }, null, 'Sort (Last Name)'),
+                    React.DOM.button({ key: 'sort-job', onClick: this._sortByJob }, null, 'Sort (Job)'),
                     React.createElement(ListContainer, { key: 'list', personList: visiblePersonList })
                 ]);
             }

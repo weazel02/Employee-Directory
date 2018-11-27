@@ -1,31 +1,19 @@
-# Code Analysis
+# Employee Directory
 
-See comments in `index.html` for instructions.
+A web application allowing for sorting and searching of a companies' employees.
 
-## Run
+## Code Review
 
-Open `index.html` in Google Chrome.
+The detailed code review is located in the Code Review_Employee Directory.docx 
 
-## Style Guide
 
-### Git Commit Messages
+## How to Run:
 
-- Use the present tense ("Add feature" not "Added feature")
-- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters or less
-- Reference issues and pull requests liberally
-- Consider starting the commit message with an applicable emoji:
-    - **Improvements**
-        - :art: `:art:` when improving the format/structure of the code
-        - :fire: `:fire:` when removing code or files
-        - :tada: `:tada:` when adding a feature
-        - :goat: `:goat:` when improving performance
-    - **Misc**
-        - :memo: `:memo:` when writing docs
-    - **Dependencies**
-        - :arrow_up: `:arrow_up:` when upgrading dependencies
-        - :arrow_down: `:arrow_down:` when downgrading dependencies
+1. Download project files and enter the project directory
+2. `npm install http-server -g`  
+This will install http-server globally so that it may be run from the command line.
+3. Run `http-server` from the command line
+4. Navigate to http://localhost:8080  
 
-### React Styles
 
-- Always favor stateless components
+

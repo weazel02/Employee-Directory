@@ -1,3 +1,7 @@
+//Created By: WillowTree Apps
+//Updated By: Wesley Thompson 
+ 
+ 
  /*==================================================
 
            API
@@ -55,7 +59,6 @@
         function getImageUrl(person){
             let imageToReturn = person.headshot.url;
             if(typeof(imageToReturn) == 'undefined'){
-                console.log("was undefined");
                 return 'images/blank_profile.png' 
             }else{
                 return `http:${imageToReturn}`;

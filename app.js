@@ -168,7 +168,7 @@
             src: props.src
         });
 
-        const ListRow = (props) => React.DOM.tr({ key: `${props.person.firstName} ${props.person.lastName}` }, [
+        const ListRow = (props) => React.DOM.tr({ key: `${props.person.firstName} ${props.person.lastName}`, className:"list-row" }, [
             React.DOM.td({ key: 'thumb' }, React.createElement(Thumbnail, { src: getImageUrl(props.person) })),
             React.DOM.td({ key: 'first' }, null, getFirstName(props.person)),
             React.DOM.td({ key: 'last' }, null, getLastName(props.person)),
@@ -236,11 +236,12 @@
                 const { visiblePersonList } = this.state;
 
                 return React.DOM.div({ className: 'app-container' }, [
-                    React.createElement(Search, { key: 'search', onChange: this._onSearch }),
+
                     React.DOM.button({ key: 'shuffle', onClick: this._shuffleList }, null, 'Shuffle'),
                     React.DOM.button({ key: 'sort-first', onClick: this._sortByFirst }, null, 'Sort (First Name)'),
                     React.DOM.button({ key: 'sort-last', onClick: this._sortByLast }, null, 'Sort (Last Name)'),
                     React.DOM.button({ key: 'sort-job', onClick: this._sortByJob }, null, 'Sort (Job)'),
+                    React.createElement(Search, { key: 'search', onChange: this._onSearch }),
                     React.createElement(ListContainer, { key: 'list', personList: visiblePersonList })
                 ]);
             }
